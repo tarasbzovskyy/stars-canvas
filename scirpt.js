@@ -140,20 +140,35 @@ $(document).ready(function() {
 	
 		begin();
 
-		// $('#canva').on('click',function(int) {
-		//
-		// 	if (!$(this).hasClass('pause')) {
-		// 		$(this).addClass('pause');
-		// 		for (var i = 1, l = dots.length; i < l; i++) {
-	     //        dots[i].stop(i);
-	     //  		};
-		// 	} else {
-		// 		$(this).removeClass('pause');
-		// 		for (var i = 1, l = dots.length; i < l; i++) {
-	     //        dots[i].continue(i);
-	     //  		};
-		// 	}
-		// })
+		function zoomRotate() {
+			notZoom = false;
+			for (var i = 1, l = dots.length; i < l; i++) {
+				dots[i].draw = dots[i].spin;
+				dots[i].speed *= 10;
+			}
+		}
+
+		$(window).resize(function() {
+			clearTimeout(this.id);
+			this.id = setTimeout(reset, 500);
+		});
+
+		 $('#canva').on('click',function(int) {
+
+		 	if (!$(this).hasClass('pause')) {
+		 		$(this).addClass('pause');
+                 for (var i = 1, l = dots.length; i < l; i++) {
+	             	dots[i].stop(i);
+	       		};
+				//zoomRotate()
+			} else {
+		 		$(this).removeClass('pause');
+                 for (var i = 1, l = dots.length; i < l; i++) {
+	             	dots[i].continue(i);
+	       		};
+				//begin();
+		 	}
+		 })
 
 		// $('#canva').hover(function(int) {
 		// 	if (!$(this).hasClass('pause')) {
@@ -179,5 +194,10 @@ $(document).ready(function() {
 		// })
 	}
 
-	createCanvas()
+	//createCanvas()
+
+		setTimeout(function(){
+			$('.logo-loading').addClass('start');
+		},300)
+
 })
