@@ -59,7 +59,8 @@ $(document).ready(function() {
             for (var i = 0; i < starCount; i++) {
                 this.stars[this.stars.length] = new Star();
             }
-            this.canvas.addEventListener('mousemove', function (e) {
+            var bodyy = document.body; //move by body
+            bodyy.addEventListener('mousemove', function (e) {
                 self.mouse.x = e.clientX;
                 self.mouse.y = e.clientY;
             });
@@ -96,10 +97,10 @@ $(document).ready(function() {
             this.parallax.y += (this.mouse.y - this.parallax.y) / 60;
              //this.ctx.globalCompositeOperation = 'destination-out';
              //this.ctx.globalCompositeOperation = 'xor';
-             this.ctx.globalCompositeOperation = 'multiply';
+             //this.ctx.globalCompositeOperation = 'multiply';
             // this.ctx.globalCompositeOperation = 'lighten'; // drawning line
             // this.ctx.globalCompositeOperation = 'hard-light'; //zbs
-            // this.ctx.globalCompositeOperation = 'difference'; // COMETA SUKA !
+             this.ctx.globalCompositeOperation = 'difference'; // COMETA SUKA !
             // this.ctx.globalCompositeOperation = 'hue'; // drawning not bad
             // this.ctx.globalCompositeOperation = 'saturation'; // drawning not bad too
             //this.ctx.globalCompositeOperation = 'luminosity'; // drawning not bad too
