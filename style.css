@@ -24,6 +24,7 @@ html, body {
 svg {width:100%;}
 
 .logo-loading {
+	display:none;
 	background:#fff;
 	position:absolute;
 	width:100%;
@@ -191,6 +192,7 @@ svg {width:100%;}
 }
 
 .info-block {
+	display:none;
 	position:absolute;
 	z-index:1;
 	text-align:center;
@@ -226,4 +228,15 @@ a {
 a:hover, a:active, a:visited {
 	color:#fff;
 	text-decoration: underline;
+}
+
+.planet {
+	width:150px;
+	height:150px;
+	position:absolute;
+	top:40%;
+	left:40%;
+	background: url('saturn.png') no-repeat;
+
+
 }
